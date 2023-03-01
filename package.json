@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-rn-in-app-update.podspec",
+    "appsonair-react-native-sdk.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
