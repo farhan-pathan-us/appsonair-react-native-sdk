@@ -1,6 +1,6 @@
 {
   "name": "appsonair-react-native-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AppsOnAir is library for managing app updates and its maintenance. It will handle from out web portal.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -8,8 +8,18 @@
   "react-native": "src/index",
   "source": "src/index",
   "files": [
-    "dist/",
-    "lib/"
+    "dist",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "react-native-rn-in-app-update.podspec",
+    "!lib/typescript/example",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
   ],
   "scripts": {
     "test": "jest",
