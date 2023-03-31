@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mm,swift}"
 
-  s.dependency 'AppsOnAir', '0.1.3'
+  s.dependency 'AppsOnAir', '~> 0.1.2'
   s.dependency "React-Core"
 
   # Don't install the dependencies when we run `pod install` in the old architecture.
