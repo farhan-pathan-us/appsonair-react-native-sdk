@@ -1,4 +1,4 @@
-package com.appsonair;
+package com.rnappsonair;
 
 import androidx.annotation.NonNull;
 
