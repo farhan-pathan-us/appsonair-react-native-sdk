@@ -1,6 +1,6 @@
 {
   "name": "appsonair-react-native-sdk",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "AppsOnAir is library for managing app updates and its maintenance. It will handle from out web portal.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
