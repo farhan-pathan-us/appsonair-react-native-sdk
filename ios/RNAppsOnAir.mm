@@ -7,6 +7,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTViewManager.h>
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
 
 @interface RCT_EXTERN_MODULE(RNAppsOnAir, NSObject)
@@ -20,6 +21,8 @@ RCT_EXTERN_METHOD(checkForAppUpdate: (RCTResponseSenderBlock)callback)
 
 @end
 
-@interface RCT_EXTERN_MODULE(ScreenshotDetector, NSObject)
+@interface RCT_EXTERN_MODULE(ScreenshotDetector, RCTEventEmitter)
+
 RCT_EXTERN_METHOD(detectScreenshot)
+
 @end
