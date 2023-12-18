@@ -1,4 +1,10 @@
-import { NativeModules } from 'react-native';
+import {
+  NativeModules,
+  NativeEventEmitter,
+  Platform,
+  Alert,
+} from 'react-native';
+const { ScreenshotDetector } = NativeModules;
 
 function isNativeModuleLoaded(module) {
   if (module == null) {
@@ -21,6 +27,8 @@ const AppsOnAirModule = NativeModules.RNAppsOnAir
       }
     );
 
+const screenshotEventEmitter = new NativeEventEmitter(ScreenshotDetector);
+
 export default class AppsOnAir {
   static setAppId(appId, showNativeUI = false) {
     if (!isNativeModuleLoaded(AppsOnAirModule)) {
@@ -38,5 +46,25 @@ export default class AppsOnAir {
     AppsOnAirModule.checkForAppUpdate((response) => {
       callback(response);
     });
+  }
+
+  static detectScreenshot() {
+    if (Platform.OS === 'ios') {
+      ScreenshotDetector.detectScreenshot();
+      screenshotEventEmitter.addListener('screenshotTaken', (event) => {
+        Alert.alert(
+          'Alert Screenshot',
+          `Screenshot taken!\nPath: ${event.path}`,
+          [
+            {
+              text: 'Cancel',
+              onPress: () => console.log('Cancel Pressed'),
+              style: 'cancel',
+            },
+            { text: 'OK', onPress: () => console.log('OK Pressed') },
+          ]
+        );
+      });
+    }
   }
 }

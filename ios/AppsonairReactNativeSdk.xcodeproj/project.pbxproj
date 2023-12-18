@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700161BB2B304123005A7F4C /* ScreenshotDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700161BA2B304123005A7F4C /* ScreenshotDetector.swift */; };
 		CC410F6929A4A5FF00C79C97 /* RNAppsOnAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC410F6829A4A5FF00C79C97 /* RNAppsOnAir.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libAppsonairReactNativeSdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppsonairReactNativeSdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		700161BA2B304123005A7F4C /* ScreenshotDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDetector.swift; sourceTree = "<group>"; };
 		CC391B4E29A48A6500E542E2 /* RNAppsOnAir.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RNAppsOnAir.mm; sourceTree = "<group>"; };
 		CC410F6729A4A5FF00C79C97 /* AppsonairReactNativeSdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppsonairReactNativeSdk-Bridging-Header.h"; sourceTree = "<group>"; };
 		CC410F6829A4A5FF00C79C97 /* RNAppsOnAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNAppsOnAir.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				700161BA2B304123005A7F4C /* ScreenshotDetector.swift */,
 				CC410F6829A4A5FF00C79C97 /* RNAppsOnAir.swift */,
 				CC391B4E29A48A6500E542E2 /* RNAppsOnAir.mm */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -117,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC410F6929A4A5FF00C79C97 /* RNAppsOnAir.swift in Sources */,
+				700161BB2B304123005A7F4C /* ScreenshotDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
