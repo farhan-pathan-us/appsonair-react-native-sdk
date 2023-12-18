@@ -30,6 +30,8 @@ const AppsOnAirModule = NativeModules.RNAppsOnAir
 const screenshotEventEmitter = new NativeEventEmitter(ScreenshotDetector);
 
 export default class AppsOnAir {
+  static isListenerAdded = false;
+
   static setAppId(appId, showNativeUI = false) {
     if (!isNativeModuleLoaded(AppsOnAirModule)) {
       return;
@@ -50,21 +52,24 @@ export default class AppsOnAir {
 
   static detectScreenshot() {
     if (Platform.OS === 'ios') {
+      if (!this.isListenerAdded) {
+        screenshotEventEmitter.addListener('screenshotTaken', (event) => {
+          Alert.alert(
+            'Alert Screenshot',
+            `Screenshot taken!\nPath: ${event.path}`,
+            [
+              {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+              },
+              { text: 'OK', onPress: () => console.log('OK Pressed') },
+            ]
+          );
+        });
+        this.isListenerAdded = true;
+      }
       ScreenshotDetector.detectScreenshot();
-      screenshotEventEmitter.addListener('screenshotTaken', (event) => {
-        Alert.alert(
-          'Alert Screenshot',
-          `Screenshot taken!\nPath: ${event.path}`,
-          [
-            {
-              text: 'Cancel',
-              onPress: () => console.log('Cancel Pressed'),
-              style: 'cancel',
-            },
-            { text: 'OK', onPress: () => console.log('OK Pressed') },
-          ]
-        );
-      });
     }
   }
 }

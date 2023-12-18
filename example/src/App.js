@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
-import { Text, SafeAreaView, Platform } from 'react-native';
+import {
+  Text,
+  SafeAreaView,
+  Platform,
+  NativeEventEmitter,
+  NativeModules,
+} from 'react-native';
 import AppsOnAir from 'appsonair-react-native-sdk';
+
+const { ScreenshotDetector } = NativeModules;
+const screenshotEventEmitter = new NativeEventEmitter(ScreenshotDetector);
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +34,8 @@ class App extends Component {
         }
       }
     });
+
+    AppsOnAir.detectScreenshot();
   }
 
   render() {
