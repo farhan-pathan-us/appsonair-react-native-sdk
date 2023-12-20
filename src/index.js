@@ -4,7 +4,7 @@ import {
   Platform,
   Alert,
 } from 'react-native';
-const { ScreenshotDetector } = NativeModules;
+const { ScreenshotDetector, Detector } = NativeModules;
 
 function isNativeModuleLoaded(module) {
   if (module == null) {
@@ -28,6 +28,7 @@ const AppsOnAirModule = NativeModules.RNAppsOnAir
     );
 
 const screenshotEventEmitter = new NativeEventEmitter(ScreenshotDetector);
+const screenshotAndroidEventEmitter = new NativeEventEmitter();
 
 export default class AppsOnAir {
   static isListenerAdded = false;
@@ -70,6 +71,13 @@ export default class AppsOnAir {
         this.isListenerAdded = true;
       }
       ScreenshotDetector.detectScreenshot();
+    } else {
+      console.log('Platform.OS:>>', Platform.OS);
+      Detector.startScreenshotDetection();
     }
+  }
+
+  static stopScreenshotDetection() {
+    Detector.stopScreenshotDetection();
   }
 }

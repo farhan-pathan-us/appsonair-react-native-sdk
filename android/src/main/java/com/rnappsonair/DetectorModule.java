@@ -41,10 +41,14 @@ public class DetectorModule extends ReactContextBaseJavaModule implements Screen
         }
     }
 
-    @Override
+      @Override
     public void onScreenCapturedWithDeniedPermission() {
-        // Todo: send user notification.
+
+        if (!isDialogOpen) {
+            showNativeModal("Permission denied for reading media images");
+        }
     }
+
 
     private void showNativeModal(final String path) {
         isDialogOpen = true;
